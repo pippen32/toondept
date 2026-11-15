@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ToonDept — Brand Character Studio for Businesses</title>
-<meta name="description" content="Brand character studio: we turn your photo into a professional character and produce your logo version, cards, menu, QR page and sales material from it. From $25. Commercial license included.">
+<meta name="description" content="Brand character studio: send us your photo and we turn it into a professional character — then produce your logo version, cards, menu, QR page and all your sales material. From $25. Commercial license included.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,11 +17,13 @@
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{font-family:'Inter',system-ui,'Segoe UI',sans-serif; background:var(--bg); color:var(--ink); font-size:16.5px; line-height:1.55;}
+  body.lock{overflow:hidden;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 22px;}
   h1,h2,h3,.disp{font-family:'Archivo',sans-serif;}
   .mono{font-family:'IBM Plex Mono',monospace;}
   a{color:var(--cob);}
   img{display:block; max-width:100%;}
+  button{font:inherit; color:inherit;}
 
   /* ---------- barra superior ---------- */
   header.top{border-bottom:2px solid var(--line2); background:var(--bg); position:sticky; top:0; z-index:50;}
@@ -35,31 +37,45 @@
   nav.main a.lang{border:1.5px solid var(--ink); padding:5px 12px; color:var(--ink);}
   @media(max-width:820px){ nav.main a:not(.lang){display:none;} }
 
+  /* ---------- tarjetas / casos ---------- */
+  .case{background:var(--panel); border:2px solid var(--line2);}
+  .case .imgbox{background:#FBFBF8; display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .case .imgbox img{width:100%; height:100%; object-fit:contain;}
+  .case .cap{border-top:2px solid var(--line2); padding:12px 16px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; display:flex; justify-content:space-between; gap:10px;}
+  .case .cap b{color:var(--cob);}
+  button.tap{display:block; width:100%; text-align:left; cursor:pointer; padding:0; background:var(--panel);}
+  button.tap:hover{border-color:var(--cob);}
+  button.tap .go{color:var(--cob); font-weight:600;}
+
   /* ---------- héroe ---------- */
   .hero{padding:56px 0 0;}
-  .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:start;}
-  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
   .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; letter-spacing:.24em; color:var(--cob); text-transform:uppercase; margin-bottom:18px;}
-  h1{font-size:clamp(40px,5.6vw,66px); font-weight:900; line-height:1.02; letter-spacing:-.015em; text-transform:uppercase;}
+  h1{font-size:clamp(38px,5.4vw,62px); font-weight:900; line-height:1.02; letter-spacing:-.015em; text-transform:uppercase; max-width:900px;}
   h1 .b{color:var(--cob);}
-  .hero p.lead{margin-top:20px; font-size:18.5px; color:var(--ink2); max-width:560px;}
+  .hero p.lead{margin-top:20px; font-size:18.5px; color:var(--ink2); max-width:640px;}
   .hero .specs{margin-top:22px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.08em; color:var(--mut); text-transform:uppercase;}
   .hero .specs b{color:var(--ink);}
   .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
-  .btn{display:inline-block; font-family:'Archivo',sans-serif; font-weight:800; font-size:15px; letter-spacing:.05em; text-transform:uppercase; text-decoration:none; padding:16px 28px; border:2px solid var(--ink); transition:background .15s,color .15s;}
+  .btn{display:inline-block; font-family:'Archivo',sans-serif; font-weight:800; font-size:15px; letter-spacing:.05em; text-transform:uppercase; text-decoration:none; padding:16px 28px; border:2px solid var(--ink); transition:background .15s,color .15s; cursor:pointer;}
   .btn-pri{background:var(--cob); border-color:var(--cob); color:#fff;}
   .btn-pri:hover{background:var(--cob-d); border-color:var(--cob-d);}
   .btn-sec{background:transparent; color:var(--ink);}
   .btn-sec:hover{background:var(--ink); color:#fff;}
   .btn-buy{display:block; text-align:center; background:var(--cob); border:2px solid var(--cob); color:#fff; padding:15px 20px;}
   .btn-buy:hover{background:var(--cob-d); border-color:var(--cob-d);}
-  figure.case{background:var(--panel); border:2px solid var(--line2);}
-  figure.case .imgbox{background:#FBFBF8; display:flex; align-items:center; justify-content:center; overflow:hidden;}
-  figure.case img{width:100%; height:100%; object-fit:contain;}
-  figure.case figcaption{border-top:2px solid var(--line2); padding:12px 16px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; display:flex; justify-content:space-between; gap:10px;}
-  figure.case figcaption b{color:var(--cob);}
-  .hero figure.case .imgbox{height:520px;}
-  @media(max-width:900px){ .hero figure.case .imgbox{height:420px;} }
+  .btn-ex{display:block; width:100%; text-align:center; background:var(--panel); border:2px solid var(--ink); color:var(--ink); padding:13px 20px; margin-top:10px; font-family:'Archivo',sans-serif; font-weight:800; font-size:14px; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;}
+  .btn-ex:hover{background:var(--ink); color:#fff;}
+
+  /* demo foto -> caricatura */
+  .demo{margin-top:44px;}
+  .demo-grid{display:grid; grid-template-columns:1fr 64px 1fr; gap:0; align-items:stretch;}
+  @media(max-width:820px){ .demo-grid{grid-template-columns:1fr; gap:0;} }
+  .demo .case .imgbox{height:480px;}
+  @media(max-width:820px){ .demo .case .imgbox{height:400px;} }
+  .demo .arrow{display:flex; align-items:center; justify-content:center; font-family:'Archivo',sans-serif; font-weight:900; font-size:44px; color:var(--cob);}
+  @media(max-width:820px){ .demo .arrow{transform:rotate(90deg); padding:6px 0;} }
+  .demo-note{margin-top:14px; font-size:14.5px; color:var(--ink2); border-left:4px solid var(--cob); padding:4px 0 4px 16px; max-width:860px;}
+  .demo-note b{color:var(--ink);}
 
   /* ---------- banda de datos ---------- */
   .statband{margin-top:56px; border-top:2px solid var(--line2); border-bottom:2px solid var(--line2); display:grid; grid-template-columns:repeat(4,1fr);}
@@ -81,22 +97,23 @@
   .grid-casos{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
   @media(max-width:900px){ .grid-casos{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:520px){ .grid-casos{grid-template-columns:1fr;} }
-  .grid-casos figure.case .imgbox{height:250px; padding:14px;}
-  .grid-casos figure.case .imgbox img.cover{object-fit:cover; object-position:50% 32%;}
-  .grid-casos figcaption{flex-direction:column; gap:2px;}
-  .grid-casos figcaption .nm{font-family:'Archivo',sans-serif; font-weight:800; font-size:16px; letter-spacing:0; text-transform:none; color:var(--ink);}
-  .grid-casos figcaption .tr{color:var(--mut);}
+  .grid-casos .case .imgbox{height:250px; padding:14px;}
+  .grid-casos .case .imgbox img.cover{object-fit:cover; object-position:50% 32%;}
+  .grid-casos .cap{flex-direction:column; gap:2px; align-items:flex-start;}
+  .grid-casos .cap .nm{font-family:'Archivo',sans-serif; font-weight:800; font-size:16px; letter-spacing:0; text-transform:none; color:var(--ink);}
+  .grid-casos .cap .tr{color:var(--mut);}
+  .grid-casos .cap .go{margin-top:6px; font-size:11px;}
 
   /* ---------- tres estilos / productos ---------- */
   .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
   @media(max-width:900px){ .grid-3{grid-template-columns:1fr;} }
-  .grid-3 figure.case .imgbox{height:380px; padding:10px;}
-  .style-use{padding:14px 16px 16px; border-top:1px solid var(--line); font-size:14.5px; color:var(--ink2);}
+  .grid-3 .case .imgbox{height:380px; padding:10px;}
+  .style-use{padding:14px 16px 16px; border-top:1px solid var(--line); font-size:14.5px; color:var(--ink2); display:block;}
   .style-use b{font-family:'Archivo',sans-serif; text-transform:uppercase; font-size:13px; letter-spacing:.06em; display:block; margin-bottom:4px; color:var(--ink);}
   .grid-prod{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:18px;}
   @media(max-width:900px){ .grid-prod{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:560px){ .grid-prod{grid-template-columns:1fr;} }
-  .grid-prod figure.case .imgbox{height:252px; padding:12px;}
+  .grid-prod .case .imgbox{height:252px; padding:12px;}
   .grid-prod .style-use b{color:var(--cob);}
 
   /* ---------- paquetes de entrada ---------- */
@@ -193,6 +210,31 @@
   footer .fmono{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; line-height:2;}
   footer a{color:#8FA6FF; text-decoration:none;}
   footer .fine{border-top:1px solid #33373F; margin-top:30px; padding-top:18px; font-size:12.5px; color:#84898F;}
+
+  /* ---------- panel (modal) ---------- */
+  .ovl{position:fixed; inset:0; background:rgba(10,12,16,.74); z-index:200; display:none; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:26px 14px 40px;}
+  .ovl.open{display:block;}
+  .sheet{background:var(--bg); border:2px solid var(--line2); max-width:580px; margin:0 auto; padding:0 0 26px;}
+  .sheet .mhead{display:flex; justify-content:space-between; align-items:flex-start; gap:14px; padding:20px 22px 0;}
+  .sheet .mtag{font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cob);}
+  .sheet h3{font-size:26px; font-weight:900; text-transform:uppercase; line-height:1.08; margin-top:5px;}
+  .sheet .mtrade{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); margin-top:5px;}
+  .xbtn{flex:none; width:42px; height:42px; border:2px solid var(--ink); background:var(--panel); font-family:'Archivo',sans-serif; font-weight:900; font-size:18px; cursor:pointer; line-height:1;}
+  .xbtn:hover{background:var(--ink); color:#fff;}
+  .sheet .mimg{margin:18px 22px 0; background:#FBFBF8; border:2px solid var(--line2); display:flex; align-items:center; justify-content:center; overflow:hidden; max-height:430px;}
+  .sheet .mimg img{width:100%; height:100%; max-height:430px; object-fit:contain;}
+  .sheet .mcap{margin:8px 22px 0; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--mut);}
+  .sheet .mlabel{margin:20px 22px 0; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cob);}
+  .sheet .mtext{margin:8px 22px 0; font-size:15.5px; color:var(--ink2);}
+  .sheet .mtext b{color:var(--ink);}
+  .sheet .mbuy{margin:20px 22px 0;}
+  .sheet .mnote{margin:12px 22px 0; font-size:12.5px; color:var(--mut);}
+  .sheet .mitems{margin:16px 22px 0; display:grid; gap:16px;}
+  .sheet .mitems figure{background:var(--panel); border:1.5px solid var(--line2);}
+  .sheet .mitems .imgbox{background:#FBFBF8; display:flex; align-items:center; justify-content:center; overflow:hidden; max-height:340px;}
+  .sheet .mitems .imgbox img{width:100%; height:100%; max-height:340px; object-fit:contain;}
+  .sheet .mitems figcaption{border-top:1.5px solid var(--line2); padding:10px 14px; font-size:14px; color:var(--ink2);}
+  .sheet .mitems figcaption b{color:var(--ink); display:block; font-family:'Archivo',sans-serif; font-size:13px; text-transform:uppercase; letter-spacing:.05em;}
 </style>
 </head>
 <body>
@@ -213,29 +255,36 @@
 
 <div class="wrap">
 
-  <!-- ================= HERO ================= -->
+  <!-- ================= HERO / DEMO ================= -->
   <div class="hero">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow">Character studio · From your photo</div>
-        <h1>Your photo becomes a <span class="b">character</span>. Your character, a <span class="b">brand</span>.</h1>
-        <p class="lead">We turn a photo of the owner, the team or the shop's pet into a professional character — and from that character we produce your logo version, your cards, your menu, your QR page and all your sales material. One character, your whole identity.</p>
-        <div class="specs">From <b>$25</b> &nbsp;·&nbsp; Commercial license <b>included</b> &nbsp;·&nbsp; Standard delivery <b>7 days</b></div>
-        <div class="cta-row">
-          <a class="btn btn-pri" href="https://payhip.com/b/DwXGC">Start my character — $25</a>
-          <a class="btn btn-sec" href="#paquetes">See packages</a>
-        </div>
+    <div class="eyebrow">Character studio · From your photo</div>
+    <h1>Your photo becomes a <span class="b">character</span>. Your character, a <span class="b">brand</span>.</h1>
+    <p class="lead">It is that simple: you send us one photo — of you, your team or your pet — and the studio turns it into a professional character. And from that character we produce your logo version, your cards, your menu, your QR page and all your sales material.</p>
+    <div class="specs">From <b>$25</b> &nbsp;·&nbsp; Commercial license <b>included</b> &nbsp;·&nbsp; Standard delivery <b>7 days</b></div>
+    <div class="cta-row">
+      <a class="btn btn-pri" href="https://payhip.com/b/DwXGC">Start my character — $25</a>
+      <a class="btn btn-sec" href="#paquetes">See packages</a>
+    </div>
+
+    <div class="demo">
+      <div class="demo-grid">
+        <figure class="case">
+          <div class="imgbox"><img src="demo/chikletin-antes.jpg" alt="Real photo of Chikletin the clown in his full costume"></div>
+          <figcaption class="cap"><span><b>Before</b> — The real photo</span><span>Chikletin · Clown</span></figcaption>
+        </figure>
+        <div class="arrow" aria-hidden="true">→</div>
+        <figure class="case">
+          <div class="imgbox"><img src="demo/chikletin-despues.jpg" alt="Chikletin turned into a cartoon character from his photo"></div>
+          <figcaption class="cap"><span><b>After</b> — His character</span><span>From that same photo</span></figcaption>
+        </figure>
       </div>
-      <figure class="case">
-        <div class="imgbox"><img src="muestras-v2/pipo-profesional.jpg" alt="Pipo, an entertainment character in the Professional style"></div>
-        <figcaption><span><b>Case 01</b> — Pipo · Entertainment</span><span>Professional style</span></figcaption>
-      </figure>
+      <p class="demo-note"><b>This is exactly what the studio sells:</b> Chikletin sent his real photo and received his character — the same clown, with his blue wig, his star vest and his red nose — ready for his logo, his cards and his shows. Tap any character on this page and you will see its full case.</p>
     </div>
 
     <div class="statband">
       <div><div class="n">18</div><div class="t">Sample mascots, one per trade</div></div>
       <div><div class="n">3</div><div class="t">Styles per character</div></div>
-      <div><div class="n">7 days</div><div class="t">Standard delivery, set by calendar</div></div>
+      <div><div class="n">7 days</div><div class="t">Standard delivery, guaranteed by calendar</div></div>
       <div><div class="n">100%</div><div class="t">Commercial license included in everything</div></div>
     </div>
   </div>
@@ -245,27 +294,27 @@
     <div class="sec-head">
       <span class="num">01</span>
       <h2>Cases by trade</h2>
-      <p>Every place with its own character, its own name and its own identity. These are studio samples — yours is created from your photo.</p>
+      <p>Every place with its own character, its name and its identity. <b>Tap any character</b> and its full case opens: what that business received and its package. Yours is created from your photo.</p>
     </div>
     <div class="grid-casos">
-      <figure class="case"><div class="imgbox"><img src="galeria/barberia.jpg" alt="Don Tijera, barbershop mascot" loading="lazy"></div><figcaption><span class="nm">Don Tijera</span><span class="tr">Barbershop</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/panaderia.jpg" alt="Panchito, bakery mascot" loading="lazy"></div><figcaption><span class="nm">Panchito</span><span class="tr">Bakery</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/foodtruck.jpg" alt="Taco Cruiser, food truck mascot" loading="lazy"></div><figcaption><span class="nm">Taco Cruiser</span><span class="tr">Food truck</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img class="cover" src="galeria/restaurante.jpg" alt="Don Pepe, restaurant mascot" loading="lazy"></div><figcaption><span class="nm">Don Pepe</span><span class="tr">Restaurant</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/cafeteria.jpg" alt="Don Café, coffee shop mascot" loading="lazy"></div><figcaption><span class="nm">Don Café</span><span class="tr">Coffee shop</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/pizzeria.jpg" alt="Tony, pizzeria mascot" loading="lazy"></div><figcaption><span class="nm">Tony</span><span class="tr">Pizzeria</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/taller.jpg" alt="El Tuercas, auto repair mascot" loading="lazy"></div><figcaption><span class="nm">El Tuercas</span><span class="tr">Auto repair shop</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/salon.jpg" alt="Lola, beauty salon mascot" loading="lazy"></div><figcaption><span class="nm">Lola</span><span class="tr">Beauty salon</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/ferreteria.jpg" alt="Martín, hardware store mascot" loading="lazy"></div><figcaption><span class="nm">Martín</span><span class="tr">Hardware store</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/floristeria.jpg" alt="Flora, flower shop mascot" loading="lazy"></div><figcaption><span class="nm">Flora</span><span class="tr">Flower shop</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/ropa.jpg" alt="Estilo, clothing store mascot" loading="lazy"></div><figcaption><span class="nm">Estilo</span><span class="tr">Clothing store</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/heladeria.jpg" alt="Fresco, ice cream shop mascot" loading="lazy"></div><figcaption><span class="nm">Fresco</span><span class="tr">Ice cream shop</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/gimnasio.jpg" alt="Míster Músculo, gym mascot" loading="lazy"></div><figcaption><span class="nm">Míster Músculo</span><span class="tr">Gym</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/lavanderia.jpg" alt="Burbujas, laundromat mascot" loading="lazy"></div><figcaption><span class="nm">Burbujas</span><span class="tr">Laundromat</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/veterinaria.jpg" alt="Dr. Patas, veterinary clinic mascot" loading="lazy"></div><figcaption><span class="nm">Dr. Patas</span><span class="tr">Veterinary clinic</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/libreria.jpg" alt="Sabio, bookstore mascot" loading="lazy"></div><figcaption><span class="nm">Sabio</span><span class="tr">Bookstore</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/equipo.jpg" alt="Campeón, sports team mascot" loading="lazy"></div><figcaption><span class="nm">Campeón</span><span class="tr">Sports team</span></figcaption></figure>
-      <figure class="case"><div class="imgbox"><img src="galeria/dj.jpg" alt="DJ Ritmo, DJ and music character" loading="lazy"></div><figcaption><span class="nm">DJ Ritmo</span><span class="tr">DJ · Music · Events</span></figcaption></figure>
+      <button type="button" class="case tap" data-case="barberia"><span class="imgbox"><img src="v3img/barberia.jpg" alt="Don Tijera, barbershop mascot" loading="lazy"></span><span class="cap"><span class="nm">Don Tijera</span><span class="tr">Barbershop</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="panaderia"><span class="imgbox"><img src="v3img/panaderia.jpg" alt="Panchito, bakery mascot" loading="lazy"></span><span class="cap"><span class="nm">Panchito</span><span class="tr">Bakery</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="foodtruck"><span class="imgbox"><img src="v3img/foodtruck.jpg" alt="Taco Cruiser, food truck mascot" loading="lazy"></span><span class="cap"><span class="nm">Taco Cruiser</span><span class="tr">Food truck</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="restaurante"><span class="imgbox"><img class="cover" src="v3img/restaurante.jpg" alt="Don Pepe, restaurant mascot" loading="lazy"></span><span class="cap"><span class="nm">Don Pepe</span><span class="tr">Restaurant</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="cafeteria"><span class="imgbox"><img src="v3img/cafeteria.jpg" alt="Don Café, coffee shop mascot" loading="lazy"></span><span class="cap"><span class="nm">Don Café</span><span class="tr">Coffee shop</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="pizzeria"><span class="imgbox"><img src="v3img/pizzeria.jpg" alt="Tony, pizzeria mascot" loading="lazy"></span><span class="cap"><span class="nm">Tony</span><span class="tr">Pizzeria</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="taller"><span class="imgbox"><img src="v3img/taller.jpg" alt="El Tuercas, auto shop mascot" loading="lazy"></span><span class="cap"><span class="nm">El Tuercas</span><span class="tr">Auto shop</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="salon"><span class="imgbox"><img src="v3img/salon.jpg" alt="Lola, beauty salon mascot" loading="lazy"></span><span class="cap"><span class="nm">Lola</span><span class="tr">Beauty salon</span><span class="go">See her case →</span></span></button>
+      <button type="button" class="case tap" data-case="ferreteria"><span class="imgbox"><img src="v3img/ferreteria.jpg" alt="Martín, hardware store mascot" loading="lazy"></span><span class="cap"><span class="nm">Martín</span><span class="tr">Hardware store</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="floristeria"><span class="imgbox"><img src="v3img/floristeria.jpg" alt="Flora, flower shop mascot" loading="lazy"></span><span class="cap"><span class="nm">Flora</span><span class="tr">Flower shop</span><span class="go">See her case →</span></span></button>
+      <button type="button" class="case tap" data-case="ropa"><span class="imgbox"><img src="v3img/ropa.jpg" alt="Estilo, clothing store mascot" loading="lazy"></span><span class="cap"><span class="nm">Estilo</span><span class="tr">Clothing store</span><span class="go">See the case →</span></span></button>
+      <button type="button" class="case tap" data-case="heladeria"><span class="imgbox"><img src="v3img/heladeria.jpg" alt="Fresco, ice cream shop mascot" loading="lazy"></span><span class="cap"><span class="nm">Fresco</span><span class="tr">Ice cream shop</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="gimnasio"><span class="imgbox"><img src="v3img/gimnasio.jpg" alt="Míster Músculo, gym mascot" loading="lazy"></span><span class="cap"><span class="nm">Míster Músculo</span><span class="tr">Gym</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="lavanderia"><span class="imgbox"><img src="v3img/lavanderia.jpg" alt="Burbujas, laundromat mascot" loading="lazy"></span><span class="cap"><span class="nm">Burbujas</span><span class="tr">Laundromat</span><span class="go">See the case →</span></span></button>
+      <button type="button" class="case tap" data-case="veterinaria"><span class="imgbox"><img src="v3img/veterinaria.jpg" alt="Dr. Patas, veterinary clinic mascot" loading="lazy"></span><span class="cap"><span class="nm">Dr. Patas</span><span class="tr">Veterinary clinic</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="libreria"><span class="imgbox"><img src="v3img/libreria.jpg" alt="Sabio, bookstore mascot" loading="lazy"></span><span class="cap"><span class="nm">Sabio</span><span class="tr">Bookstore</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="equipo"><span class="imgbox"><img src="v3img/equipo.jpg" alt="Campeón, sports team mascot" loading="lazy"></span><span class="cap"><span class="nm">Campeón</span><span class="tr">Sports team</span><span class="go">See his case →</span></span></button>
+      <button type="button" class="case tap" data-case="dj"><span class="imgbox"><img src="v3img/dj.jpg" alt="DJ Ritmo, DJ and music character" loading="lazy"></span><span class="cap"><span class="nm">DJ Ritmo</span><span class="tr">DJ · Music · Events</span><span class="go">See his case →</span></span></button>
     </div>
   </section>
 
@@ -274,38 +323,38 @@
     <div class="sec-head">
       <span class="num">02</span>
       <h2>One character, three styles</h2>
-      <p>The same character in the studio's three styles. You pick one, two or all three depending on your package.</p>
+      <p>The same character in the studio's three styles. You pick one, two or all three depending on your package. Tap a style and see Pipo's full case.</p>
     </div>
     <div class="grid-3">
-      <figure class="case">
-        <div class="imgbox"><img src="muestras-v2/pipo-bebe.jpg" alt="Pipo in the Baby and Cuddly style" loading="lazy"></div>
-        <figcaption><span><b>Style A</b></span><span>Baby / Cuddly</span></figcaption>
-        <div class="style-use"><b>For sweet brands</b>A soft, adorable version of the character. Ideal for kids' characters, baby showers and warm, friendly brands.</div>
-      </figure>
-      <figure class="case">
-        <div class="imgbox"><img src="muestras-v2/pipo-profesional.jpg" alt="Pipo in the Professional style" loading="lazy"></div>
-        <figcaption><span><b>Style B</b></span><span>Professional</span></figcaption>
-        <div class="style-use"><b>For business owners</b>The character in your uniform, with your tools and your setting. The one that goes on your logo, your cards and your shop.</div>
-      </figure>
-      <figure class="case">
-        <div class="imgbox"><img src="muestras-v2/pipo-heroe.jpg" alt="Pipo in the Hero and Action style" loading="lazy"></div>
-        <figcaption><span><b>Style C</b></span><span>Hero / Action</span></figcaption>
-        <div class="style-use"><b>For characters and creators</b>A dynamic pose with poster energy. Ideal for clowns, entertainers, teams and content creators.</div>
-      </figure>
+      <button type="button" class="case tap" data-case="pipo" data-img="v3img/pipo-bebe.jpg">
+        <span class="imgbox"><img src="v3img/pipo-bebe.jpg" alt="Pipo in Baby and Sweet style" loading="lazy"></span>
+        <span class="cap"><span><b>Style A</b></span><span>Baby / Sweet</span></span>
+        <span class="style-use"><b>For sweet brands</b>A soft, adorable version of the character. Ideal for children's characters, baby showers and tender-toned brands. <span class="go">See Pipo's case →</span></span>
+      </button>
+      <button type="button" class="case tap" data-case="pipo" data-img="v3img/pipo-profesional.jpg">
+        <span class="imgbox"><img src="v3img/pipo-profesional.jpg" alt="Pipo in Professional style" loading="lazy"></span>
+        <span class="cap"><span><b>Style B</b></span><span>Professional</span></span>
+        <span class="style-use"><b>For business owners</b>The character with your uniform, your tools and your setting. The one that goes on your logo, your cards and your shop. <span class="go">See Pipo's case →</span></span>
+      </button>
+      <button type="button" class="case tap" data-case="pipo" data-img="v3img/pipo-heroe.jpg">
+        <span class="imgbox"><img src="v3img/pipo-heroe.jpg" alt="Pipo in Hero and Action style" loading="lazy"></span>
+        <span class="cap"><span><b>Style C</b></span><span>Hero / Action</span></span>
+        <span class="style-use"><b>For characters and creators</b>A dynamic pose with poster energy. Ideal for clowns, entertainers, teams and content creators. <span class="go">See Pipo's case →</span></span>
+      </button>
     </div>
 
     <div class="sec-head" style="margin-top:52px;">
       <span class="num">02B</span>
       <h2>What your character produces</h2>
-      <p>Your character doesn't stay a drawing: it's the base of all your material. All of this comes from your order's same files.</p>
+      <p>The character does not stay a drawing: it is the base of all your material. Tap any product and see a full delivered package.</p>
     </div>
     <div class="grid-prod">
-      <figure class="case"><div class="imgbox"><img src="muestras-v2/libro-portada.jpg" alt="Coloring book of the character" loading="lazy"></div><figcaption><span><b>Product</b></span><span>Coloring book</span></figcaption><div class="style-use"><b>You receive</b>A 12-page printable book with your character in action — to sell or give away at your business.</div></figure>
-      <figure class="case"><div class="imgbox"><img src="muestras-v2/tarjeta.jpg" alt="Promo card with the character" loading="lazy"></div><figcaption><span><b>Product</b></span><span>Cards with your logo</span></figcaption><div class="style-use"><b>You receive</b>Your card design, front and back, ready to send to print.</div></figure>
-      <figure class="case"><div class="imgbox"><img src="muestras-v2/poster-qr.jpg" alt="Poster with the character's QR code" loading="lazy"></div><figcaption><span><b>Product</b></span><span>Page + QR code</span></figcaption><div class="style-use"><b>You receive</b>Your web page with your character, your services and your contact button — and the QR ready for cards, banners and social media.</div></figure>
-      <figure class="case"><div class="imgbox"><img src="muestras-v2/menu-donpepe.jpg" alt="Restaurant menu with the mascot" loading="lazy"></div><figcaption><span><b>Product</b></span><span>Menus</span></figcaption><div class="style-use"><b>You receive</b>Your full menu with your mascot guiding each section, in a file ready for print or tablet.</div></figure>
-      <figure class="case"><div class="imgbox"><img src="muestras/foodtruck-taco.jpg" alt="Mascot applied on a food truck" loading="lazy"></div><figcaption><span><b>Product</b></span><span>Your character on the scene</span></figcaption><div class="style-use"><b>You receive</b>Your character placed on your truck, your shop or your stage — your brand's main image.</div></figure>
-      <figure class="case"><div class="imgbox"><img src="muestras-v2/vaso-pipo.jpg" alt="Mug produced with the character" loading="lazy"></div><figcaption><span><b>Product</b></span><span>Physical product</span></figcaption><div class="style-use"><b>You receive</b>Your character printed on mugs and party items, produced and shipped by a supplier — zero inventory.</div></figure>
+      <button type="button" class="case tap" data-example="personajes"><span class="imgbox"><img src="v3img/libro-portada.jpg" alt="Character coloring book" loading="lazy"></span><span class="cap"><span><b>Product</b></span><span>Coloring book</span></span><span class="style-use"><b>You receive</b>A 12-page printable book with your character in scene — to sell or give away at your business. <span class="go">See a delivered package →</span></span></button>
+      <button type="button" class="case tap" data-example="negocio"><span class="imgbox"><img src="v3img/tarjeta.jpg" alt="Promo card with the character" loading="lazy"></span><span class="cap"><span><b>Product</b></span><span>Cards with your logo</span></span><span class="style-use"><b>You receive</b>Your card design, front and back, ready to send to print. <span class="go">See a delivered package →</span></span></button>
+      <button type="button" class="case tap" data-example="personajes"><span class="imgbox"><img src="v3img/poster-qr.jpg" alt="Poster with the character's QR code" loading="lazy"></span><span class="cap"><span><b>Product</b></span><span>Page + QR code</span></span><span class="style-use"><b>You receive</b>Your web page with your character, your services and your contact — and the QR ready for cards, banners and social media. <span class="go">See a delivered package →</span></span></button>
+      <button type="button" class="case tap" data-example="restaurante"><span class="imgbox"><img src="v3img/menu-donpepe.jpg" alt="Restaurant menu with the mascot" loading="lazy"></span><span class="cap"><span><b>Product</b></span><span>Menus</span></span><span class="style-use"><b>You receive</b>Your full menu with your mascot guiding each section, in a file ready for print or tablet. <span class="go">See a delivered package →</span></span></button>
+      <button type="button" class="case tap" data-example="foodtruck"><span class="imgbox"><img src="v3img/foodtruck-taco.jpg" alt="Mascot applied on a food truck" loading="lazy"></span><span class="cap"><span><b>Product</b></span><span>Your character in scene</span></span><span class="style-use"><b>You receive</b>Your character mounted on your truck, your shop or your stage — your brand's main image. <span class="go">See a delivered package →</span></span></button>
+      <button type="button" class="case tap" data-example="personajes"><span class="imgbox"><img src="v3img/vaso-pipo.jpg" alt="Mug produced with the character" loading="lazy"></span><span class="cap"><span><b>Product</b></span><span>Physical product</span></span><span class="style-use"><b>You receive</b>Your character printed on mugs and party items, produced and shipped by a supplier — no inventory. <span class="go">See a delivered package →</span></span></button>
     </div>
   </section>
 
@@ -314,19 +363,19 @@
     <div class="sec-head">
       <span class="num">03</span>
       <h2>Character packages</h2>
-      <p>This is exactly what you buy in each package: deliverables, files, license and timing. No surprises.</p>
+      <p>This is exactly what you buy in each package: deliverables, files, license and timing. And in each one you can <b>see what a client received</b>, piece by piece.</p>
     </div>
     <div class="grid-pack">
 
       <div class="pack">
         <div class="ph">
-          <div class="tag">Package 01 · Starter</div>
+          <div class="tag">Package 01 · Entry</div>
           <h3>Essential</h3>
           <p class="desc">Your character, ready to use on your logo, your social media and your cards.</p>
-          <div class="price">$25 <small>USD · ONE-TIME PAYMENT</small></div>
+          <div class="price">$25 <small>USD · ONE-TIME</small></div>
         </div>
         <ul>
-          <li><b>1 style</b> of your choice: Baby/Cuddly, Professional or Hero/Action</li>
+          <li><b>1 style</b> of your choice: Baby/Sweet, Professional or Hero/Action</li>
           <li><b>Full-body</b> character, clean background</li>
           <li><b>PNG with transparent background</b> — place it anywhere</li>
           <li><b>High-resolution JPG</b></li>
@@ -337,17 +386,18 @@
         </ul>
         <div class="pf">
           <a class="btn btn-buy" href="https://payhip.com/b/DwXGC">Buy Essential — $25</a>
+          <button type="button" class="btn-ex" data-example="esencial">See what a client received</button>
           <div class="ship">Digital delivery by email</div>
         </div>
       </div>
 
       <div class="pack hot">
-        <div class="badge">Most popular</div>
+        <div class="badge">Most ordered</div>
         <div class="ph">
           <div class="tag">Package 02 · Business</div>
           <h3>Pro</h3>
           <p class="desc">Your character in two styles and inside your own setting.</p>
-          <div class="price">$49 <small>USD · ONE-TIME PAYMENT</small></div>
+          <div class="price">$49 <small>USD · ONE-TIME</small></div>
         </div>
         <ul>
           <li><b>2 styles</b> of the same character</li>
@@ -361,6 +411,7 @@
         </ul>
         <div class="pf">
           <a class="btn btn-buy" href="https://payhip.com/b/17VFg">Buy Pro — $49</a>
+          <button type="button" class="btn-ex" data-example="pro">See what a client received</button>
           <div class="ship">Digital delivery by email</div>
         </div>
       </div>
@@ -370,10 +421,10 @@
           <div class="tag">Package 03 · Complete</div>
           <h3>Premium</h3>
           <p class="desc">The complete character: all three styles, four poses and queue priority.</p>
-          <div class="price">$79 <small>USD · ONE-TIME PAYMENT</small></div>
+          <div class="price">$79 <small>USD · ONE-TIME</small></div>
         </div>
         <ul>
-          <li><b>All 3 styles</b>: Baby/Cuddly, Professional and Hero/Action</li>
+          <li><b>All 3 styles</b>: Baby/Sweet, Professional and Hero/Action</li>
           <li><b>4-pose pack</b>: waving, pointing, celebrating and logo pose</li>
           <li><b>1 custom scene</b>: your shop, your truck or your stage</li>
           <li><b>Transparent PNG</b> + <b>high-resolution JPG</b> + <b>print PDF</b></li>
@@ -383,13 +434,14 @@
         </ul>
         <div class="pf">
           <a class="btn btn-buy" href="https://payhip.com/b/HUZqT">Buy Premium — $79</a>
+          <button type="button" class="btn-ex" data-example="premium">See what a client received</button>
           <div class="ship">Digital delivery by email</div>
         </div>
       </div>
 
     </div>
     <div class="addons">
-      <b>Extras</b>
+      <b>Add-ons</b>
       <span>Extra person or pet in the same illustration: <b>+$20 each</b></span>
       <span>Express 72-hour delivery: <b>+$25</b> (subject to availability)</span>
       <span>Already have your character? Every ladder product is made from your same files.</span>
@@ -401,7 +453,7 @@
     <div class="sec-head">
       <span class="num">04</span>
       <h2>Full packages by business</h2>
-      <p>Your type of business's whole ladder in a single package, with every item's price in plain sight.</p>
+      <p>Your whole trade ladder in one package, with each piece's price in plain sight — and the button to <b>see a package already delivered</b>.</p>
     </div>
     <div class="grid-vert">
 
@@ -411,14 +463,15 @@
           <div class="save">You save $33</div>
         </div>
         <ul>
-          <li><div class="d"><b>Coloring book of your character</b><span>12 printable pages with your character in action, to sell or give away at your shows</span></div><div class="p"><s>$49</s></div></li>
-          <li><div class="d"><b>Promo cards with your logo</b><span>Front-and-back design, print-ready</span></div><div class="p"><s>$25</s></div></li>
+          <li><div class="d"><b>Your character's coloring book</b><span>12 printable pages with your character in scene, to sell or give away at your shows</span></div><div class="p"><s>$49</s></div></li>
+          <li><div class="d"><b>Promo cards with your logo</b><span>Front and back design, ready for print</span></div><div class="p"><s>$25</s></div></li>
           <li><div class="d"><b>Your QR + booking page</b><span>Your page with your character, your services and your contact button; the QR ready to print</span></div><div class="p"><s>$59</s></div></li>
           <li><div class="d"><b>Social media kit</b><span>Avatar, cover and 6 stickers of your character</span></div><div class="p"><s>$29</s></div></li>
         </ul>
         <div class="vf">
           <div class="tot"><span class="tv">Separately <s>$162</s></span><span class="tp">$129 <small>USD</small></span></div>
           <a class="btn btn-buy" href="https://payhip.com/b/hDAI3">Buy package — $129</a>
+          <button type="button" class="btn-ex" data-example="personajes">See what a client received</button>
         </div>
       </div>
 
@@ -428,14 +481,15 @@
           <div class="save">You save $33</div>
         </div>
         <ul>
-          <li><div class="d"><b>Window menu for your truck</b><span>Large-format board with your mascot, print-ready</span></div><div class="p"><s>$39</s></div></li>
-          <li><div class="d"><b>Cards &amp; flyers with menu QR</b><span>Print-ready design</span></div><div class="p"><s>$25</s></div></li>
+          <li><div class="d"><b>Menu board for the truck window</b><span>Large-format board with your mascot, ready to print</span></div><div class="p"><s>$39</s></div></li>
+          <li><div class="d"><b>Cards and flyers with QR to the menu</b><span>Design ready for print</span></div><div class="p"><s>$25</s></div></li>
           <li><div class="d"><b>Your QR + truck page</b><span>Menu, hours and where you are today — updatable when you move</span></div><div class="p"><s>$79</s></div></li>
-          <li><div class="d"><b>Mascot decal</b><span>Design for your truck, boxes and bags</span></div><div class="p"><s>$19</s></div></li>
+          <li><div class="d"><b>Your mascot decal</b><span>Design for the truck, boxes and bags</span></div><div class="p"><s>$19</s></div></li>
         </ul>
         <div class="vf">
           <div class="tot"><span class="tv">Separately <s>$162</s></span><span class="tp">$129 <small>USD</small></span></div>
           <a class="btn btn-buy" href="https://payhip.com/b/WEYRN">Buy package — $129</a>
+          <button type="button" class="btn-ex" data-example="foodtruck">See what a client received</button>
         </div>
       </div>
 
@@ -446,35 +500,37 @@
         </div>
         <ul>
           <li><div class="d"><b>Full menu</b><span>Up to 4 pages with your mascot guiding the sections</span></div><div class="p"><s>$49</s></div></li>
-          <li><div class="d"><b>Business &amp; loyalty cards</b><span>With your character-logo, print-ready</span></div><div class="p"><s>$25</s></div></li>
+          <li><div class="d"><b>Business and loyalty cards</b><span>With your logo-character, ready for print</span></div><div class="p"><s>$25</s></div></li>
           <li><div class="d"><b>Your QR + restaurant page</b><span>Digital menu, reservation button and map</span></div><div class="p"><s>$79</s></div></li>
-          <li><div class="d"><b>Table set</b><span>4 daily-specials designs with your mascot</span></div><div class="p"><s>$29</s></div></li>
+          <li><div class="d"><b>Table set</b><span>4 daily-special designs with your mascot</span></div><div class="p"><s>$29</s></div></li>
         </ul>
         <div class="vf">
           <div class="tot"><span class="tv">Separately <s>$182</s></span><span class="tp">$145 <small>USD</small></span></div>
           <a class="btn btn-buy" href="https://payhip.com/b/RID7o">Buy package — $145</a>
+          <button type="button" class="btn-ex" data-example="restaurante">See what a client received</button>
         </div>
       </div>
 
       <div class="vert">
         <div class="vh">
-          <div><h3>Local businesses</h3><div class="who">Barbershops · Salons · Repair shops · Stores</div></div>
+          <div><h3>Local businesses</h3><div class="who">Barbershops · Salons · Shops · Stores</div></div>
           <div class="save">You save $29</div>
         </div>
         <ul>
           <li><div class="d"><b>Logo version of your character</b><span>Your mascot simplified to use as a logo everywhere</span></div><div class="p"><s>$19</s></div></li>
-          <li><div class="d"><b>Business cards</b><span>With your character, print-ready design</span></div><div class="p"><s>$25</s></div></li>
+          <li><div class="d"><b>Business cards</b><span>With your character, design ready for print</span></div><div class="p"><s>$25</s></div></li>
           <li><div class="d"><b>Your QR + business page</b><span>Services, prices, hours and contact button</span></div><div class="p"><s>$59</s></div></li>
-          <li><div class="d"><b>Sign / vinyl design</b><span>For your storefront or vehicle, with your character</span></div><div class="p"><s>$35</s></div></li>
+          <li><div class="d"><b>Sign or vinyl design</b><span>For your storefront or vehicle, with your character</span></div><div class="p"><s>$35</s></div></li>
         </ul>
         <div class="vf">
           <div class="tot"><span class="tv">Separately <s>$138</s></span><span class="tp">$109 <small>USD</small></span></div>
           <a class="btn btn-buy" href="https://payhip.com/b/oOHeC">Buy package — $109</a>
+          <button type="button" class="btn-ex" data-example="negocio">See what a client received</button>
         </div>
       </div>
 
     </div>
-    <p class="note-line">Full packages are built on top of your character. If you don't have yours yet, start with any character package (from $25) and every piece of your package is made from that same order's files.</p>
+    <p class="note-line">Full packages are built on top of your character. If you do not have yours yet, start with any character package (from $25) and every piece of your package is made from that same order's files.</p>
   </section>
 
   <!-- ================= 05 ADDITIONAL LADDERS ================= -->
@@ -482,12 +538,12 @@
     <div class="sec-head">
       <span class="num">05</span>
       <h2>Additional ladders</h2>
-      <p>Every product can be bought on its own when you need it. This is what you receive in each one.</p>
+      <p>Each product can be bought on its own when you need it. This is what you receive in each one.</p>
     </div>
     <div class="grid-lad">
 
       <div class="lad">
-        <h3><span>Tablet menu</span> · Restaurants &amp; trucks</h3>
+        <h3><span>Tablet menu</span> · Restaurants and trucks</h3>
         <table>
           <tr><td><b>Digital menu setup</b> — your menu page with your character, photos and prices, ready to run on your tablet, with its QR for tables</td><td class="p">$79</td></tr>
           <tr><td><b>Update</b> — price or dish change on your digital menu</td><td class="p">$15 / change</td></tr>
@@ -498,22 +554,22 @@
       <div class="lad">
         <h3><span>Parties &amp; events</span> · Weddings · Quinceañeras · Birthdays</h3>
         <table>
-          <tr><td><b>Digital invitation</b> — with the event character and confirmation QR</td><td class="p">$19</td></tr>
-          <tr><td><b>Welcome sign</b> — large-format design, print-ready</td><td class="p">$25</td></tr>
+          <tr><td><b>Digital invitation</b> — with the event's character and RSVP QR</td><td class="p">$19</td></tr>
+          <tr><td><b>Welcome sign</b> — large-format design ready to print</td><td class="p">$25</td></tr>
           <tr><td><b>Table set design</b> — cups, plates and napkins with the character, production-ready files</td><td class="p">$35</td></tr>
-          <tr><td><b>Produced table set, shipped</b> — cups, plates and napkins printed by a supplier</td><td class="p">from $99</td></tr>
-          <tr><td><b>Keepsake mug</b> — with the character, produced and shipped, no minimum</td><td class="p">$20 each</td></tr>
-          <tr class="pk"><td>Fiesta Total Package <s>$128</s></td><td class="p">$99</td></tr>
+          <tr><td><b>Table set produced &amp; shipped</b> — cups, plates and napkins printed by a supplier</td><td class="p">from $99</td></tr>
+          <tr><td><b>Souvenir mug</b> — with the character, produced and shipped, no minimum</td><td class="p">$20 each</td></tr>
+          <tr class="pk"><td>Total Party Package <s>$128</s></td><td class="p">$99</td></tr>
         </table>
       </div>
 
       <div class="lad">
         <h3><span>Teams &amp; leagues</span> · Sports</h3>
         <table>
-          <tr><td><b>Team mascot</b> — from the nickname, the colors or a team photo</td><td class="p">$25</td></tr>
+          <tr><td><b>Team mascot</b> — from the nickname, the colors or the team photo</td><td class="p">$25</td></tr>
           <tr><td><b>Season poster</b> — your mascot with the game schedule</td><td class="p">$29</td></tr>
           <tr><td><b>Player cards</b> — set design for up to 15 players</td><td class="p">$35</td></tr>
-          <tr class="pk"><td>Full Team Package <s>$89</s></td><td class="p">$69</td></tr>
+          <tr class="pk"><td>Total Team Package <s>$89</s></td><td class="p">$69</td></tr>
         </table>
       </div>
 
@@ -522,7 +578,7 @@
         <table>
           <tr><td><b>The birthday kid as a hero character</b> — from their photo</td><td class="p">$25</td></tr>
           <tr><td><b>Party invitation</b> — with their character</td><td class="p">$15</td></tr>
-          <tr><td><b>Coloring book of their party</b> — with them as the star, 12 pages</td><td class="p">$39</td></tr>
+          <tr><td><b>Their party coloring book</b> — starring them, 12 pages</td><td class="p">$39</td></tr>
           <tr><td><b>Welcome poster</b> — for the party, with their character</td><td class="p">$19</td></tr>
           <tr class="pk"><td>Hero Birthday Package <s>$98</s></td><td class="p">$75</td></tr>
         </table>
@@ -532,36 +588,36 @@
         <h3><span>Pets</span> · Your dog or cat, as a character</h3>
         <table>
           <tr><td><b>Your pet as a character</b> — from their photo</td><td class="p">$25</td></tr>
-          <tr><td><b>Portrait poster</b> — high-resolution file, ready to frame</td><td class="p">$19</td></tr>
-          <tr><td><b>Sticker set + fun ID card</b> — of your pet character</td><td class="p">$15</td></tr>
-          <tr class="pk"><td>Full Pet Package <s>$59</s></td><td class="p">$45</td></tr>
+          <tr><td><b>Poster portrait</b> — high-resolution file for framing</td><td class="p">$19</td></tr>
+          <tr><td><b>Sticker set + ID card</b> — of your pet-character</td><td class="p">$15</td></tr>
+          <tr class="pk"><td>Total Pet Package <s>$59</s></td><td class="p">$45</td></tr>
         </table>
       </div>
 
       <div class="lad">
-        <h3><span>Individual products</span> · For those who already have their character</h3>
+        <h3><span>Single products</span> · For those who already have their character</h3>
         <table>
           <tr><td><b>Coloring book</b> — 12 printable pages of your character</td><td class="p">$49</td></tr>
           <tr><td><b>QR + page</b> — your page with a print-ready QR</td><td class="p">$59 – $79</td></tr>
           <tr><td><b>Full menu</b> — up to 4 pages with your mascot</td><td class="p">$49</td></tr>
-          <tr><td><b>Cards with your logo</b> — front-and-back design</td><td class="p">$25</td></tr>
+          <tr><td><b>Cards with your logo</b> — front and back design</td><td class="p">$25</td></tr>
         </table>
       </div>
 
     </div>
   </section>
 
-  <!-- ================= 06 CALENDAR & PROCESS ================= -->
+  <!-- ================= 06 CALENDAR AND PROCESS ================= -->
   <section id="calendario">
     <div class="sec-head">
       <span class="num">06</span>
       <h2>Delivery calendar</h2>
-      <p>Production with a real weekly capacity. Your date is set the day your order is confirmed.</p>
+      <p>Production with a real weekly capacity. Your date is set in writing when your order is confirmed.</p>
     </div>
     <div class="cal-panel">
       <div>
         <div class="eyebrow">Your date, no guessing</div>
-        <h3>Order today, get your character in 7 days</h3>
+        <h3>Order today and your character arrives in 7 days</h3>
         <div class="cal-dates">
           <div><span>Today</span><b id="hoy">—</b></div>
           <div class="hl"><span>Estimated delivery</span><b id="entrega">—</b></div>
@@ -572,8 +628,8 @@
         <li><b>Standard delivery: 7 days</b> from the moment your order is confirmed (photo received + payment).</li>
         <li><b>Premium skips 2 days</b> of queue, included in its price.</li>
         <li><b>72-hour express (+$25)</b> — only if the calendar has room.</li>
-        <li><b>If the queue fills up, the date moves</b> — and the page says so plainly: the line you see is the studio's real demand.</li>
-        <li>Every order gets its <b>number and its date</b> the same day it's confirmed.</li>
+        <li><b>If the queue fills up, the date moves</b> and the page says so plainly: the line you see is the studio's real demand.</li>
+        <li>Every order gets its <b>number and its date</b> the same day it is confirmed.</li>
       </ul>
     </div>
 
@@ -582,9 +638,9 @@
       <h2>How it works</h2>
     </div>
     <div class="steps">
-      <div class="step"><div class="n">STEP 01</div><h3>You buy and send your photo</h3><p>Pick your package, complete your purchase and email us one clear photo and your trade.</p></div>
+      <div class="step"><div class="n">STEP 01</div><h3>You buy and send your photo</h3><p>You pick your package, complete your purchase and email us one clear photo and your trade.</p></div>
       <div class="step"><div class="n">STEP 02</div><h3>We design your character</h3><p>The studio creates your character in your package's style or styles, with your uniform and your setting.</p></div>
-      <div class="step"><div class="n">STEP 03</div><h3>You review your character</h3><p>You receive your character and use your package's revisions until it's the way you want it.</p></div>
+      <div class="step"><div class="n">STEP 03</div><h3>You review your character</h3><p>You receive your character and use your package's revisions until it looks the way you want.</p></div>
       <div class="step"><div class="n">STEP 04</div><h3>You receive your files</h3><p>Transparent PNG, high-resolution JPG and print PDF depending on your package — ready to use and to sell.</p></div>
     </div>
   </section>
@@ -597,11 +653,11 @@
     </div>
     <div class="faq">
       <div><h3>What photo do I need to send?</h3><p>One clear, front-facing photo — a phone photo works. If your package includes a scene, you can also send a photo of your shop, your truck or your stage.</p></div>
-      <div><h3>Exactly what files do I receive?</h3><p>Depending on your package: transparent PNG, high-resolution JPG and a print-ready PDF. Everything is delivered digitally by email — no shipping waits.</p></div>
+      <div><h3>What files do I receive exactly?</h3><p>Depending on your package: PNG with transparent background, high-resolution JPG and print-ready PDF. Everything is delivered digitally by email — no shipping waits.</p></div>
       <div><h3>Can I use my character in my business?</h3><p>Yes. Every package includes a commercial license: you can use your character on social media, cards, your shop, your menu and your sales material.</p></div>
-      <div><h3>How long does my order take?</h3><p>Standard delivery is 7 days per the production calendar. The Premium package skips 2 days of queue, and a 72-hour express (+$25) is available subject to capacity.</p></div>
-      <div><h3>What if I want another product later?</h3><p>Your character stays on file at the studio: every new ladder product is made from your original order's files, without starting from scratch.</p></div>
-      <div><h3>Are the characters on this page real clients?</h3><p>No. They are fictional characters created by the studio as a sample of each trade. Yours is created from your photo.</p></div>
+      <div><h3>How long does my order take?</h3><p>Standard delivery is 7 days per the production calendar. The Premium package skips 2 days of queue, and a 72-hour express (+$25) exists subject to availability.</p></div>
+      <div><h3>What if I want another product later?</h3><p>Your character stays on file at the studio: every new ladder product is made from your original order's files, with no starting over.</p></div>
+      <div><h3>Are the characters on this page real clients?</h3><p>They are sample characters created by the studio to show each trade and each package — except Chikletin, whose real photo and character open this page. Yours is created from your photo.</p></div>
     </div>
   </section>
 
@@ -617,25 +673,244 @@
       <div class="fmono">
         Studio contact<br>
         <a href="mailto:swingbravo@gmail.com">swingbravo@gmail.com</a><br>
-        Digital delivery · Zero inventory
+        Digital delivery · No inventory
       </div>
     </div>
-    <div class="fine">© 2026 ToonDept. The characters shown are fictional studio samples. Prices in USD, one-time payment per digital product.</div>
+    <div class="fine">© 2026 ToonDept. The characters shown are studio samples. Prices in USD, one-time payment per digital product.</div>
   </div>
 </footer>
 
+<!-- ================= PANEL (CASES AND EXAMPLES) ================= -->
+<div class="ovl" id="ovl" role="dialog" aria-modal="true">
+  <div class="sheet" id="sheet"></div>
+</div>
+
 <script>
 (function(){
+  /* ---------- calendar ---------- */
   try{
-    var dias = 7;
     var hoy = new Date();
-    var entrega = new Date(hoy.getTime() + dias*24*60*60*1000);
-    var fmt = new Intl.DateTimeFormat('en-US', { weekday:'long', month:'long', day:'numeric' });
+    var entrega = new Date(hoy.getTime() + 7*24*60*60*1000);
+    var fmt = new Intl.DateTimeFormat('en-US', { weekday:'long', day:'numeric', month:'long' });
     var elHoy = document.getElementById('hoy');
     var elEnt = document.getElementById('entrega');
     if(elHoy) elHoy.textContent = fmt.format(hoy);
     if(elEnt) elEnt.textContent = fmt.format(entrega);
   }catch(e){ /* the page works without the date calculation */ }
+
+  /* ---------- case data ---------- */
+  var NEG = { buy:'https://payhip.com/b/oOHeC', label:'Buy Local Business Package — $109' };
+  var RES = { buy:'https://payhip.com/b/RID7o', label:'Buy Restaurant Package — $145' };
+  var FTR = { buy:'https://payhip.com/b/WEYRN', label:'Buy Food Truck Package — $129' };
+  var PER = { buy:'https://payhip.com/b/hDAI3', label:'Buy Character Package — $129' };
+
+  var CASES = {
+    pipo: { name:'Pipo', trade:'Entertainment · Show character', img:'v3img/pipo-profesional.jpg',
+      received:'Pipo is the character of a party entertainer. He received <b>his character in all 3 styles</b> (Baby/Sweet, Professional and Hero/Action), his 12-page <b>coloring book</b>, his <b>promo cards</b>, his <b>booking poster with QR</b> and his character <b>produced on a mug</b> — all from the Characters &amp; Creators Package.',
+      buy:PER.buy, label:PER.label },
+    barberia: { name:'Don Tijera', trade:'Barbershop', img:'v3img/barberia.jpg',
+      received:'The barbershop sent a photo of its main barber. It received <b>his character in Professional style</b> holding the house scissors, his simplified <b>logo version</b>, <b>business cards</b> and his <b>QR page</b> with services, prices and hours — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    panaderia: { name:'Panchito', trade:'Bakery', img:'v3img/panaderia.jpg',
+      received:'The bakery sent a photo of its baker. It received <b>his character in Professional style</b>, his <b>logo version</b> for bags and boxes, <b>business cards</b> and his <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    foodtruck: { name:'Taco Cruiser', trade:'Food truck', img:'v3img/foodtruck.jpg',
+      extra:{ img:'v3img/foodtruck-taco.jpg', cap:'His mascot applied on the truck' },
+      received:'The truck sent a photo of its cook and of the unit. It received <b>its mascot in Professional style</b>, the <b>mascot applied on the truck</b>, the <b>window menu board</b>, <b>cards and flyers with QR to the menu</b> and its <b>truck page</b> with hours and location — from the Food Truck Package.',
+      buy:FTR.buy, label:FTR.label },
+    restaurante: { name:'Don Pepe', trade:'Restaurant', img:'v3img/restaurante.jpg',
+      extra:{ img:'v3img/menu-donpepe.jpg', cap:'His full menu, delivered' },
+      received:'The restaurant sent a photo of its chef. It received <b>its mascot in Professional style</b>, its <b>full menu</b> with the mascot guiding each section, <b>business and loyalty cards</b> and its <b>QR page</b> with digital menu and reservations — from the Restaurant Package.',
+      buy:RES.buy, label:RES.label },
+    cafeteria: { name:'Don Café', trade:'Coffee shop', img:'v3img/cafeteria.jpg',
+      received:'The coffee shop sent a photo of its barista. It received <b>his character in Professional style</b>, his <b>logo version</b> for cups and bags, <b>business cards</b> and his <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    pizzeria: { name:'Tony', trade:'Pizzeria', img:'v3img/pizzeria.jpg',
+      received:'The pizzeria sent a photo of its pizza maker. It received <b>its mascot in Professional style</b>, its <b>full menu</b> with the mascot in each section, <b>business and loyalty cards</b> and its <b>QR page</b> — from the Restaurant Package.',
+      buy:RES.buy, label:RES.label },
+    taller: { name:'El Tuercas', trade:'Auto shop', img:'v3img/taller.jpg',
+      received:'The shop sent a photo of its lead mechanic. It received <b>his character in Professional style</b> with his overalls and wrench, his <b>logo version</b>, <b>business cards</b> and his <b>QR page</b> with services and hours — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    salon: { name:'Lola', trade:'Beauty salon', img:'v3img/salon.jpg',
+      received:'The salon sent a photo of its lead stylist. It received <b>her character in Professional style</b>, her <b>logo version</b>, <b>business cards</b> and her <b>QR page</b> with services, prices and appointments — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    ferreteria: { name:'Martín', trade:'Hardware store', img:'v3img/ferreteria.jpg',
+      received:'The hardware store sent a photo of its manager. It received <b>his character in Professional style</b>, his <b>logo version</b> for the sign and the bags, <b>business cards</b> and his <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    floristeria: { name:'Flora', trade:'Flower shop', img:'v3img/floristeria.jpg',
+      received:'The flower shop sent a photo of its florist. It received <b>her character in Professional style</b>, her <b>logo version</b> for arrangement cards and wraps, <b>business cards</b> and her <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    ropa: { name:'Estilo', trade:'Clothing store', img:'v3img/ropa.jpg',
+      received:'The store sent a photo of its owner. It received <b>her character in Professional style</b>, her <b>logo version</b> for tags and bags, <b>business cards</b> and her <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    heladeria: { name:'Fresco', trade:'Ice cream shop', img:'v3img/heladeria.jpg',
+      received:'The ice cream shop sent a photo of its manager. It received <b>his character in Professional style</b>, his <b>logo version</b> for cups and napkins, <b>business cards</b> and his <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    gimnasio: { name:'Míster Músculo', trade:'Gym', img:'v3img/gimnasio.jpg',
+      received:'The gym sent a photo of its head trainer. It received <b>his character in Professional style</b>, his <b>logo version</b> for shirts and bottles, <b>business cards</b> and his <b>QR page</b> with plans and hours — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    lavanderia: { name:'Burbujas', trade:'Laundromat', img:'v3img/lavanderia.jpg',
+      received:'The laundromat sent a photo of its manager. It received <b>her character in Professional style</b>, her <b>logo version</b> for the sign and the bags, <b>business cards</b> and her <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    veterinaria: { name:'Dr. Patas', trade:'Veterinary clinic', img:'v3img/veterinaria.jpg',
+      received:'The clinic sent a photo of its veterinarian. It received <b>his character in Professional style</b>, his <b>logo version</b> for vaccine cards and prescriptions, <b>business cards</b> and his <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    libreria: { name:'Sabio', trade:'Bookstore', img:'v3img/libreria.jpg',
+      received:'The bookstore sent a photo of its manager. It received <b>his character in Professional style</b>, his <b>logo version</b> for bags and bookmarks, <b>business cards</b> and his <b>QR page</b> — from the Local Business Package.',
+      buy:NEG.buy, label:NEG.label },
+    equipo: { name:'Campeón', trade:'Sports team', img:'v3img/equipo.jpg',
+      received:'The team sent its nickname, its colors and the group photo. It received <b>its official mascot</b> in Hero/Action style, ready for shirts, the <b>season poster</b> and the <b>player cards</b> — built with the Character Package.',
+      buy:PER.buy, label:PER.label },
+    dj: { name:'DJ Ritmo', trade:'DJ · Music · Events', img:'v3img/dj.jpg',
+      received:'The DJ sent his photo with his console. He received <b>his character in Hero/Action style</b>, his <b>social media kit</b> with avatar and cover, <b>stickers of his character</b> and his <b>booking page with QR</b> — from the Characters &amp; Creators Package.',
+      buy:PER.buy, label:PER.label }
+  };
+
+  /* ---------- example data (delivered packages) ---------- */
+  var EXAMPLES = {
+    esencial: { title:'Essential — $25', sub:'What one client received, in full',
+      intro:'This is exactly what landed in their inbox when their Essential order was completed:',
+      items:[
+        { img:'demo/chikletin-despues.jpg', t:'His character, from his photo', d:'Chikletin sent his real photo and received his character in 1 style, full body — the same one that opens this page.' },
+        { img:'v3img/pipo-profesional.jpg', t:'Another client, another trade', d:'The character of an entertainer, in Professional style: transparent PNG + high-resolution JPG, with commercial license.' }
+      ],
+      buy:'https://payhip.com/b/DwXGC', label:'Buy Essential — $25' },
+    pro: { title:'Pro — $49', sub:'What one client received, in full',
+      intro:'This is exactly what landed in their inbox when their Pro order was completed:',
+      items:[
+        { img:'v3img/pipo-profesional.jpg', t:'Style 1 of 2', d:'His character in Professional style, with his uniform and tools.' },
+        { img:'v3img/pipo-bebe.jpg', t:'Style 2 of 2', d:'The same character in Baby/Sweet style — two registers of the same brand.' },
+        { img:'v3img/foodtruck-taco.jpg', t:'His custom scene', d:'The character mounted on his own setting — here, the mascot applied on his truck. Includes print-ready PDF and 2 revisions.' }
+      ],
+      buy:'https://payhip.com/b/17VFg', label:'Buy Pro — $49' },
+    premium: { title:'Premium — $79', sub:'What one client received, in full',
+      intro:'This is exactly what landed in their inbox when their Premium order was completed:',
+      items:[
+        { img:'v3img/pipo-bebe.jpg', t:'Baby / Sweet style', d:'The soft version of the character.' },
+        { img:'v3img/pipo-profesional.jpg', t:'Professional style', d:'The business version, with uniform and tools.' },
+        { img:'v3img/pipo-heroe.jpg', t:'Hero / Action style', d:'The poster version, with a dynamic pose.' },
+        { img:'v3img/tarjeta.jpg', t:'His pose pack at work', d:'The 4 poses (waving, pointing, celebrating and logo pose) working on his card — with production queue priority.' }
+      ],
+      buy:'https://payhip.com/b/HUZqT', label:'Buy Premium — $79' },
+    personajes: { title:'Characters & Creators — $129', sub:'A full package, already delivered',
+      intro:'This is what an entertainer received with his Characters & Creators Package — the complete set:',
+      items:[
+        { img:'v3img/libro-portada.jpg', t:'Coloring book — cover', d:'His character on the cover of his own coloring book.' },
+        { img:'v3img/colorear-pagina.jpg', t:'Coloring book — inside', d:'One of the 12 printable pages with his character in scene, ready to sell or give away at his shows.' },
+        { img:'v3img/tarjeta.jpg', t:'Promo cards', d:'His front-and-back design with his logo-character, ready for print.' },
+        { img:'v3img/poster-qr.jpg', t:'Booking poster with QR', d:'His poster with the QR code that goes straight to his booking page.' },
+        { img:'v3img/vaso-pipo.jpg', t:'His character produced on a mug', d:'Physical product produced and shipped by a supplier — no inventory.' }
+      ],
+      buy:'https://payhip.com/b/hDAI3', label:'Buy package — $129' },
+    foodtruck: { title:'Food Trucks — $129', sub:'A full package, already delivered',
+      intro:'This is what a food truck received with its package — the complete set:',
+      items:[
+        { img:'v3img/foodtruck-taco.jpg', t:'Its mascot applied on the truck', d:'The main image of its brand: its mascot mounted on the unit.' },
+        { img:'v3img/foodtruck.jpg', t:'Its mascot', d:'The base character everything comes from: window menu, decals and page.' },
+        { img:'v3img/tarjeta.jpg', t:'Cards and flyers with QR to the menu', d:'Print-ready design; the QR leads to the menu and the location of the day.' }
+      ],
+      buy:'https://payhip.com/b/WEYRN', label:'Buy package — $129' },
+    restaurante: { title:'Restaurants — $145', sub:'A full package, already delivered',
+      intro:'This is what a restaurant received with its package — the complete set:',
+      items:[
+        { img:'v3img/menu-donpepe.jpg', t:'Its full menu', d:'Don Pepe guides every section of the menu — file ready for print or tablet.' },
+        { img:'v3img/restaurante.jpg', t:'Its mascot', d:'Don Pepe, created from the photo of the house chef.' },
+        { img:'v3img/tarjeta.jpg', t:'Business and loyalty cards', d:'With its logo-character, ready for print.' }
+      ],
+      buy:'https://payhip.com/b/RID7o', label:'Buy package — $145' },
+    negocio: { title:'Local Businesses — $109', sub:'A full package, already delivered',
+      intro:'This is what a local business received with its package — the complete set:',
+      items:[
+        { img:'v3img/barberia.jpg', t:'Its character and logo version', d:'Don Tijera, the mascot of a barbershop — and his simplified version to use as a logo everywhere.' },
+        { img:'v3img/tarjeta.jpg', t:'Business cards', d:'With its character, front-and-back design ready for print.' },
+        { img:'v3img/poster-qr.jpg', t:'Its page with QR code', d:'Its business page with services and contact — and the QR ready for the storefront and the cards.' }
+      ],
+      buy:'https://payhip.com/b/oOHeC', label:'Buy package — $109' }
+  };
+
+  /* ---------- panel: open / close ---------- */
+  var ovl = document.getElementById('ovl');
+  var sheet = document.getElementById('sheet');
+  var NOTE = 'Sample case created by the studio to show the package. Your character is created from your photo.';
+
+  function openSheet(html){
+    sheet.innerHTML = html;
+    ovl.classList.add('open');
+    document.body.classList.add('lock');
+    ovl.scrollTop = 0;
+    var x = sheet.querySelector('.xbtn');
+    if(x) x.focus();
+  }
+  function closeSheet(){
+    ovl.classList.remove('open');
+    document.body.classList.remove('lock');
+    sheet.innerHTML = '';
+  }
+  function headHTML(tag, title, sub){
+    return '<div class="mhead"><div><div class="mtag">' + tag + '</div><h3>' + title + '</h3>' +
+      (sub ? '<div class="mtrade">' + sub + '</div>' : '') +
+      '</div><button type="button" class="xbtn" data-close aria-label="Close">×</button></div>';
+  }
+  function openCase(key, imgOverride){
+    var c = CASES[key];
+    if(!c) return;
+    var html = headHTML('Case by trade', c.name, c.trade);
+    html += '<div class="mimg"><img src="' + (imgOverride || c.img) + '" alt="' + c.name + '"></div>';
+    if(c.extra){
+      html += '<div class="mimg"><img src="' + c.extra.img + '" alt="' + c.extra.cap + '"></div>';
+      html += '<div class="mcap">' + c.extra.cap + '</div>';
+    }
+    html += '<div class="mlabel">This is what this business received</div>';
+    html += '<p class="mtext">' + c.received + '</p>';
+    html += '<div class="mbuy"><a class="btn btn-buy" href="' + c.buy + '">' + c.label + '</a></div>';
+    html += '<p class="mnote">' + NOTE + '</p>';
+    openSheet(html);
+  }
+  function openExample(key){
+    var e = EXAMPLES[key];
+    if(!e) return;
+    var html = headHTML('Delivered package', e.title, e.sub);
+    html += '<p class="mtext" style="margin-top:16px;">' + e.intro + '</p>';
+    html += '<div class="mitems">';
+    for(var i = 0; i < e.items.length; i++){
+      var it = e.items[i];
+      html += '<figure><span class="imgbox"><img src="' + it.img + '" alt="' + it.t + '" loading="lazy"></span><figcaption><b>' + it.t + '</b>' + it.d + '</figcaption></figure>';
+    }
+    html += '</div>';
+    html += '<div class="mbuy"><a class="btn btn-buy" href="' + e.buy + '">' + e.label + '</a></div>';
+    html += '<p class="mnote">' + NOTE + '</p>';
+    openSheet(html);
+  }
+
+  var taps = document.querySelectorAll('[data-case]');
+  for(var i = 0; i < taps.length; i++){
+    (function(el){
+      el.addEventListener('click', function(){
+        openCase(el.getAttribute('data-case'), el.getAttribute('data-img'));
+      });
+    })(taps[i]);
+  }
+  var exs = document.querySelectorAll('[data-example]');
+  for(var j = 0; j < exs.length; j++){
+    (function(el){
+      el.addEventListener('click', function(){
+        openExample(el.getAttribute('data-example'));
+      });
+    })(exs[j]);
+  }
+  ovl.addEventListener('click', function(ev){
+    if(ev.target === ovl) closeSheet();
+  });
+  sheet.addEventListener('click', function(ev){
+    var t = ev.target;
+    while(t && t !== sheet){
+      if(t.getAttribute && t.getAttribute('data-close') !== null){ closeSheet(); return; }
+      t = t.parentNode;
+    }
+  });
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape' || ev.keyCode === 27) closeSheet();
+  });
 })();
 </script>
 </body>
